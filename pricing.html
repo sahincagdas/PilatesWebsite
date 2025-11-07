@@ -33,7 +33,24 @@
             },
         }
     </script>
-<style>
+    <meta name="description" content="Pilates Studio - paketler ve fiyatlar. Bireysel ders, aylık paket ve kampanyalar. Ücretsiz tanıtım dersleri ve özel indirimler.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pilates Studio - Fiyatlar">
+    <meta property="og:description" content="Pilates Studio paketleri: tek ders, aylık paket, 3 aylık kampanya. Size uygun planı seçin.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/pricing.html">
+    <meta property="og:image" content="https://example.com/og-pilates.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Pilates Studio",
+      "url": "https://example.com",
+      "logo": "https://example.com/logo.png",
+      "sameAs": []
+    }
+    </script>
+    <style>
         body { font-family: 'Manrope', sans-serif; }
     </style>
 </head>
@@ -86,28 +103,173 @@
 </nav>
 </div>
 </header>
+<div class="site-container">
 <main class="flex-1 pt-20">
 <section class="w-full px-4 sm:px-10 lg:px-20 py-10">
 <div class="mx-auto max-w-5xl flex flex-col items-center gap-8">
-<h1 class="text-3xl font-bold text-primary mb-6">Fiyatlar</h1>
+</div>
+
+<h1 class="text-3xl font-bold text-primary mb-2">Fiyatlar</h1>
+<p class="text-gray-700 dark:text-gray-300 text-center max-w-2xl mb-6">Size uygun planı seçin. Paketlerin içinde neler olduğunu, kaç ders olduğunu ve hangi avantajları sunduğunu aşağıda görebilirsiniz. Satın almak için "Satın Al" butonuna tıklayın veya iletişim formunu kullanın.</p>
+
+<!-- Compare toggle -->
+<div class="flex items-center gap-3 mb-4">
+    <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+        <input id="compareToggle" type="checkbox" class="w-4 h-4" />
+        Karşılaştırma tablosunu göster
+    </label>
+</div>
+
+<!-- Compare table (hidden by default) -->
+<div id="compareTable" class="hidden w-full overflow-auto mb-6">
+    <table class="w-full text-sm border-collapse">
+        <thead>
+            <tr class="text-left">
+                <th class="py-2">Özellik</th>
+                <th class="py-2">Tek Ders</th>
+                <th class="py-2">8 Ders / Aylık</th>
+                <th class="py-2">3 Ay Kampanya</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td class="py-2">Ders sayısı</td><td>1</td><td>8</td><td>24</td></tr>
+            <tr><td class="py-2">Geçerlilik</td><td>-</td><td>1 ay</td><td>3 ay</td></tr>
+            <tr><td class="py-2">Özel indirim</td><td>Yok</td><td>%5</td><td>%15</td></tr>
+            <tr><td class="py-2">Reformer erişimi</td><td>✓</td><td>✓</td><td>✓</td></tr>
+            <tr><td class="py-2">Özel ders desteği</td><td>Opsiyonel</td><td>Opsiyonel</td><td>Ücretsiz 1 Oturum</td></tr>
+        </tbody>
+    </table>
+</div>
+
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-<div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-center gap-2">
-<h2 class="text-xl font-bold mb-2">Tek Ders</h2>
-<p class="text-primary dark:text-gray-400">350 TL</p>
+    <!-- Card: Single -->
+    <div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-start gap-4">
+        <div class="flex items-center justify-between w-full">
+            <h2 class="text-xl font-bold">Tek Ders</h2>
+            <p class="text-2xl font-bold text-primary">₺350</p>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Bir kere denemek isteyenler için ideal.</p>
+        <ul class="mt-2 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+            <li>• 45 dakikalık ders</li>
+            <li>• Alet veya mat kullanımı</li>
+            <li>• Ekipman temini</li>
+        </ul>
+        <div class="mt-4 w-full">
+            <a class="w-full inline-block text-center px-4 py-2 rounded-lg bg-primary/20 text-[#111813] hover:bg-primary/40 transition-colors" href="mailto:info@pilatesstudio.com?subject=Sat%C4%B1n%20Alma%20-%20Tek%20Ders">Satın Al</a>
+        </div>
+    </div>
+
+    <!-- Card: Monthly -->
+    <div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-start gap-4 border border-primary ring-2 ring-primary">
+        <div class="flex items-center justify-between w-full">
+            <h2 class="text-xl font-bold">Aylık Paket (8 Ders)</h2>
+            <p class="text-2xl font-bold text-[#111813]">₺2.400</p>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Düzenli pratik yapmak isteyenler için.</p>
+        <ul class="mt-2 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+            <li>• Haftada 2 ders (toplam 8 ders)</li>
+            <li>• Esneklik ve güç odaklı program</li>
+            <li>• %5 paket indirimi</li>
+            <li>• 1 seans ücretsiz değerlendirme</li>
+        </ul>
+        <div class="mt-4 w-full flex gap-2">
+            <a class="flex-1 inline-block text-center px-4 py-2 rounded-lg bg-primary text-[#111813] font-bold hover:brightness-90 transition-all" href="mailto:info@pilatesstudio.com?subject=Sat%C4%B1n%20Alma%20-%208%20Ders%20Paket">Satın Al</a>
+            <button data-modal-target="purchaseModal" data-plan="8 Ders Paketi" class="flex-1 px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary/10 transition-colors">Hemen Rezervasyon</button>
+        </div>
+    </div>
+
+    <!-- Card: Campaign -->
+    <div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-start gap-4">
+        <div class="flex items-center justify-between w-full">
+            <h2 class="text-xl font-bold">3 Ay Kampanya (24 Ders)</h2>
+            <p class="text-2xl font-bold text-primary">₺6.600</p>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400">En çok tasarruf sağlayan paketimiz.</p>
+        <ul class="mt-2 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+            <li>• Haftada 2 ders (toplam 24 ders)</li>
+            <li>• %15 kampanya indirimi</li>
+            <li>• 1 ücretsiz özel ders</li>
+            <li>• Öncelikli seans rezervasyonu</li>
+        </ul>
+        <div class="mt-4 w-full">
+            <a class="w-full inline-block text-center px-4 py-2 rounded-lg bg-primary/20 text-[#111813] hover:bg-primary/40 transition-colors" href="mailto:info@pilatesstudio.com?subject=Sat%C4%B1n%20Alma%20-%203%20Ay%20Kampanya">Satın Al</a>
+        </div>
+    </div>
 </div>
-<div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-center gap-2">
-<h2 class="text-xl font-bold mb-2">Aylık Paket (8 Ders)</h2>
-<p class="text-primary dark:text-gray-400">2.400 TL</p>
+
+<div class="mt-8 w-full bg-white dark:bg-background-dark/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800">
+    <h3 class="text-lg font-bold mb-2">Ödeme & İptal Politikası</h3>
+    <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+        <li>• Ödemeler kredi kartı veya havale ile yapılabilir. Kredi kartı ödemeleri için bizimle iletişime geçin.</li>
+        <li>• Ders iptalleri için en az 12 saat öncesinden haber veriniz; aksi durumda ders hakkı kullanılmış sayılır.</li>
+        <li>• Paket iadesi durumları paket süresine göre değerlendirilir; lütfen info@pilatesstudio.com üzerinden iletişime geçin.</li>
+    </ul>
 </div>
-<div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-center gap-2">
-<h2 class="text-xl font-bold mb-2">Kampanya: 3 Ay (24 Ders)</h2>
-<p class="text-primary dark:text-gray-400">6.600 TL</p>
+
+<!-- Purchase modal -->
+<div id="modalOverlay" class="hidden fixed inset-0 bg-black/40 z-50"></div>
+<div id="purchaseModal" class="hidden fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-lg bg-white dark:bg-background-dark p-6 rounded-xl shadow-lg">
+    <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-bold">Rezervasyon</h3>
+        <button data-modal-close class="text-gray-600 hover:text-gray-900">Kapat</button>
+    </div>
+    <form action="mailto:info@pilatesstudio.com" method="GET">
+        <input type="hidden" name="plan" value="" />
+        <label class="text-sm">Adınız</label>
+        <input class="w-full p-2 rounded mt-1 mb-3 border" name="name" required />
+        <label class="text-sm">Telefon</label>
+        <input class="w-full p-2 rounded mt-1 mb-3 border" name="phone" required />
+        <label class="text-sm">Tercih edilen tarih / saat</label>
+        <input class="w-full p-2 rounded mt-1 mb-3 border" name="datetime" />
+        <div class="flex gap-2">
+            <button type="submit" class="flex-1 px-4 py-2 rounded bg-primary text-[#111813] font-bold">Gönder</button>
+            <button type="button" data-modal-close class="flex-1 px-4 py-2 rounded border">İptal</button>
+        </div>
+    </form>
 </div>
-</div>
-<p class="mt-8 text-primary dark:text-gray-400 text-center">Daha fazla bilgi ve özel paketler için bizimle iletişime geçebilirsiniz.</p>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {"@type":"Question","name":"Ödemeler nasıl yapılır?","acceptedAnswer":{"@type":"Answer","text":"Kredi kartı veya havale ile ödeme yapılabilir. Detaylar için iletişime geçin."}},
+        {"@type":"Question","name":"Ders iptali şartları nelerdir?","acceptedAnswer":{"@type":"Answer","text":"Ders iptalleri için en az 12 saat önceden bildirim gereklidir."}}
+    ]
+}
+</script>
 </div>
 </section>
+
 </main>
+</div>
+
+<footer class="w-full px-4 sm:px-10 lg:px-20 py-10 bg-white dark:bg-background-dark/50">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="flex flex-col gap-4">
+            <h3 class="text-lg font-bold text-[#111813] dark:text-white">Pilates Studio</h3>
+            <p class="text-sm">Bedeninizle yeniden bağlantı kurun, gücünüzü ve dengenizi keşfedin.</p>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h3 class="text-lg font-bold text-[#111813] dark:text-white">Hızlı Bağlantılar</h3>
+            <a class="text-sm hover:text-primary dark:hover:text-primary" href="index.html">Ana Sayfa</a>
+            <a class="text-sm hover:text-primary dark:hover:text-primary" href="about.html">Hakkımızda</a>
+            <a class="text-sm hover:text-primary dark:hover:text-primary" href="classes.html">Ders Programı</a>
+            <a class="text-sm hover:text-primary dark:hover:text-primary" href="faq.html">S.S.S.</a>
+            <a class="text-sm hover:text-primary dark:hover:text-primary" href="privacy.html">Gizlilik Politikası</a>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h3 class="text-lg font-bold text-[#111813] dark:text-white">İletişim</h3>
+            <p class="text-sm">Örnek Mah. Pilates Sk. No:12/3, İstanbul</p>
+            <p class="text-sm">info@pilatesstudio.com</p>
+            <p class="text-sm">+90 212 123 45 67</p>
+        </div>
+    </div>
+    <div class="border-t border-gray-200/80 dark:border-gray-800/80 mt-8 pt-6 text-center text-sm">
+        <p>© 2024 Pilates Studio. Tüm hakları saklıdır.</p>
+    </div>
+</footer>
+
 </div>
 </div>
 

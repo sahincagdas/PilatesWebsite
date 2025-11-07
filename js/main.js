@@ -162,4 +162,79 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initButtonLoadingStates();
     initKeyboardNavigation();
+    initActiveNav();
+    initModals();
+    initCompareToggle();
 });
+
+// Highlight active navigation link based on current pathname
+function initActiveNav() {
+    const links = document.querySelectorAll('header a[href], #mobileMenu a[href]');
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        // normalize index
+        const linkFile = href.split('/').pop();
+        if (linkFile === path || (path === '' && (linkFile === 'index.html' || linkFile === './'))) {
+            link.classList.add('text-primary');
+            link.classList.add('font-bold');
+        } else {
+            link.classList.remove('text-primary');
+            link.classList.remove('font-bold');
+        }
+    });
+}
+
+// Simple modal handling for purchase flow
+function initModals() {
+    const openers = document.querySelectorAll('[data-modal-target]');
+    const modal = document.getElementById('purchaseModal');
+    const overlay = document.getElementById('modalOverlay');
+    const closers = modal ? modal.querySelectorAll('[data-modal-close]') : [];
+
+    function openModal() {
+        if (!modal || !overlay) return;
+        modal.classList.remove('hidden');
+        overlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        // focus first input if any
+        const input = modal.querySelector('input, button, textarea, select');
+        if (input) input.focus();
+    }
+
+    function closeModal() {
+        if (!modal || !overlay) return;
+        modal.classList.add('hidden');
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    openers.forEach(btn => btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const plan = btn.getAttribute('data-plan');
+        if (modal) {
+            const planField = modal.querySelector('[name="plan"]');
+            if (planField) planField.value = plan || '';
+        }
+        openModal();
+    }));
+
+    closers.forEach(btn => btn.addEventListener('click', closeModal));
+    if (overlay) overlay.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+}
+
+// Simple compare toggle for pricing features
+function initCompareToggle() {
+    const toggle = document.getElementById('compareToggle');
+    const compareTable = document.getElementById('compareTable');
+    if (!toggle || !compareTable) return;
+    toggle.addEventListener('change', (e) => {
+        if (e.target.checked) {
+            compareTable.classList.remove('hidden');
+        } else {
+            compareTable.classList.add('hidden');
+        }
+    });
+}

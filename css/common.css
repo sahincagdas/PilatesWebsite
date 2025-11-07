@@ -4,6 +4,44 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Design tokens / container variables */
+:root {
+    --site-max-width: 1200px; /* maximum content width */
+    --site-gutter: 1rem; /* horizontal padding */
+    --content-max-width: 1100px; /* inner content column */
+}
+
+/* Project-wide container to keep consistent widths and centering */
+.site-container {
+    width: 100%;
+    max-width: var(--site-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--site-gutter);
+    padding-right: var(--site-gutter);
+}
+
+/* Inner content column used inside pages to limit text measure */
+.layout-content-container {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Consistent aspect utilities (fallback for browsers without Tailwind's utilities) */
+.aspect-square { aspect-ratio: 1 / 1; }
+.aspect-video { aspect-ratio: 16 / 9; }
+
+/* Ensure background-image elements fit within a consistent aspect box */
+.bg-cover {
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+/* Make sure images are responsive */
+img { max-width: 100%; height: auto; display: block; }
+
 /* Mobile Menu Animations */
 .mobile-menu {
     transform: translateX(100%);
