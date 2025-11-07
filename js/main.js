@@ -246,11 +246,12 @@ function initActiveNav() {
         // normalize index
         const linkFile = href.split('/').pop();
         if (linkFile === path || (path === '' && (linkFile === 'index.html' || linkFile === './'))) {
-            link.classList.add('text-primary');
-            link.classList.add('font-bold');
+            // Use the same Tailwind classes as the header uses for the active state
+            link.classList.add('text-indigo-600');
+            link.classList.add('font-semibold');
         } else {
-            link.classList.remove('text-primary');
-            link.classList.remove('font-bold');
+            link.classList.remove('text-indigo-600');
+            link.classList.remove('font-semibold');
         }
     });
 }
