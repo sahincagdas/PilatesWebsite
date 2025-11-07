@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>İletişim - Pilates Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7d17b4",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#1b1121",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        input.error, textarea.error {
+            border-color: #ef4444 !important;
+        }
+        
+        input.success, textarea.success {
+            border-color: #10b981 !important;
+        }
+        
+        .success-message {
+            background-color: #d1fae5;
+            border: 1px solid #10b981;
+            color: #065f46;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111813] dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200/80 dark:border-b-gray-800 px-4 sm:px-10 lg:px-20 py-4 fixed top-0 left-0 right-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z"></path>
+</svg>
+</div>
+<h2 class="text-[#111813] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Pilates Studio</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="homepage.html">Ana Sayfa</a>
+<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="about.html">Hakkımızda</a>
+<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="classes.html">Dersler</a>
+                <a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="pricing.html">Fiyatlar</a>
+<a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="contact.html">İletişim</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+<span class="truncate">Ders Al</span>
+</button>
+<button id="darkModeToggle" class="ml-3 p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Tema değiştir">
+<span class="material-symbols-outlined text-2xl">dark_mode</span>
+</button>
+</div>
+<div class="md:hidden flex items-center gap-2">
+<button id="darkModeToggleMobile" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Tema değiştir">
+<span class="material-symbols-outlined text-2xl">dark_mode</span>
+</button>
+<button id="menuToggle" class="p-2" aria-label="Menüyü aç" aria-expanded="false">
+<span class="material-symbols-outlined text-3xl text-[#111813] dark:text-gray-200"> menu </span>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="mobile-menu fixed top-[73px] right-0 bottom-0 w-64 bg-white dark:bg-background-dark shadow-2xl z-40 md:hidden">
+<nav class="flex flex-col p-6 gap-4">
+<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="homepage.html">Ana Sayfa</a>
+<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="about.html">Hakkımızda</a>
+<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="classes.html">Dersler</a>
+<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="pricing.html">Fiyatlar</a>
+<a class="text-primary text-base font-bold py-2" href="contact.html">İletişim</a>
+<button class="mt-4 flex w-full cursor-pointer items-center justify-center rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold hover:opacity-90 transition-opacity">
+<span>Ders Al</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="flex-1 pt-20">
+<section class="w-full px-4 sm:px-10 lg:px-20 py-10">
+<div class="mx-auto max-w-xl">
+<div class="w-full bg-white dark:bg-background-dark rounded-xl p-6 shadow mb-8">
+<p class="mb-4 text-primary dark:text-gray-400"><span class="material-symbols-outlined inline-block align-middle mr-2">location_on</span>Adres: Örnek Mah. Pilates Sk. No:12/3, İstanbul</p>
+<p class="mb-4 text-primary dark:text-gray-400"><span class="material-symbols-outlined inline-block align-middle mr-2">mail</span>E-posta: info@pilatesstudio.com</p>
+<p class="mb-4 text-primary dark:text-gray-400"><span class="material-symbols-outlined inline-block align-middle mr-2">call</span>Telefon: +90 212 123 45 67</p>
+</div>
+<div id="successMessage" class="success-message dark:bg-green-900/20 dark:border-green-700 dark:text-green-400">
+<span class="material-symbols-outlined inline-block align-middle mr-2">check_circle</span>
+Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
+</div>
+<form id="contactForm" class="w-full bg-white dark:bg-background-dark rounded-xl p-6 shadow flex flex-col gap-4">
+<div>
+<label class="font-bold text-primary dark:text-gray-300 block mb-2" for="name">Adınız *</label>
+<input class="border border-gray-300 dark:border-gray-600 rounded p-3 w-full focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-800 dark:text-white transition-colors" type="text" id="name" name="name" required aria-required="true" />
+<span class="error-message" id="nameError">Lütfen adınızı giriniz</span>
+</div>
+<div>
+<label class="font-bold text-primary dark:text-gray-300 block mb-2" for="email">E-posta *</label>
+<input class="border border-gray-300 dark:border-gray-600 rounded p-3 w-full focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-800 dark:text-white transition-colors" type="email" id="email" name="email" required aria-required="true" />
+<span class="error-message" id="emailError">Lütfen geçerli bir e-posta adresi giriniz</span>
+</div>
+<div>
+<label class="font-bold text-primary dark:text-gray-300 block mb-2" for="message">Mesajınız *</label>
+<textarea class="border border-gray-300 dark:border-gray-600 rounded p-3 w-full focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-800 dark:text-white transition-colors" id="message" name="message" rows="4" required aria-required="true"></textarea>
+<span class="error-message" id="messageError">Lütfen mesajınızı giriniz</span>
+</div>
+<button class="bg-primary text-white rounded-xl p-3 font-bold hover:opacity-90 transition-all transform hover:scale-105 focus:ring-4 focus:ring-primary/50 disabled:opacity-50 disabled:cursor-not-allowed" type="submit" id="submitBtn">
+<span id="submitText">Gönder</span>
+</button>
+</form>
+</div>
+</section>
+</main>
+</div>
+</div>
+
+<script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            menuToggle.querySelector('.material-symbols-outlined').textContent = 
+                mobileMenu.classList.contains('active') ? 'close' : 'menu';
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.querySelector('.material-symbols-outlined').textContent = 'menu';
+            }
+        });
+    }
+    
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
+    
+    const currentTheme = localStorage.getItem('theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    
+    if (currentTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        updateDarkModeIcons('light_mode');
+    } else {
+        document.documentElement.classList.remove('dark');
+        updateDarkModeIcons('dark_mode');
+    }
+    
+    function updateDarkModeIcons(icon) {
+        if (darkModeToggle) {
+            darkModeToggle.querySelector('.material-symbols-outlined').textContent = icon;
+        }
+        if (darkModeToggleMobile) {
+            darkModeToggleMobile.querySelector('.material-symbols-outlined').textContent = icon;
+        }
+    }
+    
+    function toggleDarkMode() {
+        document.documentElement.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateDarkModeIcons(isDark ? 'light_mode' : 'dark_mode');
+    }
+    
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+    }
+    
+    if (darkModeToggleMobile) {
+        darkModeToggleMobile.addEventListener('click', toggleDarkMode);
+    }
+    
+    // Form Validation
+    const contactForm = document.getElementById('contactForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const successMessage = document.getElementById('successMessage');
+    
+    function validateName() {
+        const value = nameInput.value.trim();
+        const errorMsg = document.getElementById('nameError');
+        
+        if (value.length < 2) {
+            nameInput.classList.add('error');
+            nameInput.classList.remove('success');
+            errorMsg.classList.add('show');
+            return false;
+        } else {
+            nameInput.classList.remove('error');
+            nameInput.classList.add('success');
+            errorMsg.classList.remove('show');
+            return true;
+        }
+    }
+    
+    function validateEmail() {
+        const value = emailInput.value.trim();
+        const errorMsg = document.getElementById('emailError');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!emailRegex.test(value)) {
+            emailInput.classList.add('error');
+            emailInput.classList.remove('success');
+            errorMsg.classList.add('show');
+            return false;
+        } else {
+            emailInput.classList.remove('error');
+            emailInput.classList.add('success');
+            errorMsg.classList.remove('show');
+            return true;
+        }
+    }
+    
+    function validateMessage() {
+        const value = messageInput.value.trim();
+        const errorMsg = document.getElementById('messageError');
+        
+        if (value.length < 10) {
+            messageInput.classList.add('error');
+            messageInput.classList.remove('success');
+            errorMsg.textContent = 'Mesajınız en az 10 karakter olmalıdır';
+            errorMsg.classList.add('show');
+            return false;
+        } else {
+            messageInput.classList.remove('error');
+            messageInput.classList.add('success');
+            errorMsg.classList.remove('show');
+            return true;
+        }
+    }
+    
+    // Real-time validation
+    nameInput.addEventListener('blur', validateName);
+    emailInput.addEventListener('blur', validateEmail);
+    messageInput.addEventListener('blur', validateMessage);
+    
+    nameInput.addEventListener('input', () => {
+        if (nameInput.classList.contains('error')) {
+            validateName();
+        }
+    });
+    
+    emailInput.addEventListener('input', () => {
+        if (emailInput.classList.contains('error')) {
+            validateEmail();
+        }
+    });
+    
+    messageInput.addEventListener('input', () => {
+        if (messageInput.classList.contains('error')) {
+            validateMessage();
+        }
+    });
+    
+    // Form submission
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const isNameValid = validateName();
+        const isEmailValid = validateEmail();
+        const isMessageValid = validateMessage();
+        
+        if (isNameValid && isEmailValid && isMessageValid) {
+            submitBtn.disabled = true;
+            submitText.textContent = 'Gönderiliyor...';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                successMessage.classList.add('show');
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitText.textContent = 'Gönder';
+                
+                // Remove success classes
+                nameInput.classList.remove('success');
+                emailInput.classList.remove('success');
+                messageInput.classList.remove('success');
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1500);
+        }
+    });
+</script>
+</body>
+</html>

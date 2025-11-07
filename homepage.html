@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pilates Studio Ana Sayfa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7d17b4",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#1b1121",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .loading {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .spinner {
+            animation: spin 1s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111813] dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200/80 dark:border-b-gray-800 px-4 sm:px-10 lg:px-20 py-4 fixed top-0 left-0 right-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z"></path>
+</svg>
+</div>
+<h2 class="text-[#111813] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Pilates Studio</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="homepage.html">Ana Sayfa</a>
+<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="about.html">Hakkımızda</a>
+<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="classes.html">Dersler</a>
+<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="pricing.html">Fiyatlar</a>
+                <a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="contact.html">İletişim</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+<span class="truncate">Ders Al</span>
+</button>
+<button id="darkModeToggle" class="ml-3 p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Tema değiştir">
+<span class="material-symbols-outlined text-2xl">dark_mode</span>
+</button>
+</div>
+<div class="md:hidden flex items-center gap-2">
+<button id="darkModeToggleMobile" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Tema değiştir">
+<span class="material-symbols-outlined text-2xl">dark_mode</span>
+</button>
+<button id="menuToggle" class="p-2" aria-label="Menüyü aç" aria-expanded="false">
+<span class="material-symbols-outlined text-3xl text-[#111813] dark:text-gray-200"> menu </span>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="mobile-menu fixed top-[73px] right-0 bottom-0 w-64 bg-white dark:bg-background-dark shadow-2xl z-40 md:hidden">
+<nav class="flex flex-col p-6 gap-4">
+<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="homepage.html">Ana Sayfa</a>
+<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="about.html">Hakkımızda</a>
+<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="classes.html">Dersler</a>
+<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="pricing.html">Fiyatlar</a>
+<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="contact.html">İletişim</a>
+<button class="mt-4 flex w-full cursor-pointer items-center justify-center rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold hover:opacity-90 transition-opacity">
+<span>Ders Al</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="flex-1 pt-20">
+<section class="w-full @container px-4 sm:px-10 lg:px-20 py-10">
+<div class="flex min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-4" data-alt="Pilates yapan bir kadın" style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAi0dkFD3p6wAB0-jLqf0UsZZk31fYT2y4Gbxl51UGaXzFVC2OIRdbCg9b1nNigSjmSDV2sldWijaFNx3MwCaCNT-nDUjOlDCjxkt3Uf5Wlre1J4Yv2TEPf8s1tEvU8pEgSkHmQrEh1LGV8TM1pZLMOWaVrNZMG9ncWkLbEQ2MvMAbTyyOsvQQsNGc8ibpMdxFf7AnTZVyY_w1UUaUI5ApLKavvA46LWlqoOBPdjkkym8Ga_mrP5oVCc0DR2_3g26gR73zVh76IzwWq");'>
+<div class="flex flex-col gap-4 text-center max-w-2xl">
+<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                                        Bedeninle Yeniden Bağlantı Kur
+                                    </h1>
+                <h2 class="text-white text-base font-normal leading-normal @[480px]:text-lg @[480px]:font-normal @[480px]:leading-normal">
+                                        Stüdyomuzun sakin ve enerjik atmosferinde dengeni bul, gücünü keşfet.
+                                    </h2>
+</div>
+<a href="contact.html">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-opacity-90 transition-all transform hover:scale-105 focus:ring-4 focus:ring-primary/50" aria-label="Deneme dersi için iletişime geç">
+<span class="truncate">Deneme Dersi Al</span>
+</button>
+</a>
+</div>
+</section>
+<section class="w-full flex flex-col gap-10 px-4 sm:px-10 lg:px-20 py-10 @container">
+<div class="flex flex-col gap-4 text-center items-center">
+<h2 class="text-[#111813] dark:text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+                                    Felsefemiz
+                                </h2>
+<p class="text-gray-700 dark:text-gray-300 text-base font-normal leading-normal max-w-[720px]">
+                                    Profesyonel eğitmenlerimiz eşliğinde, bedeninizi ve zihninizi güçlendireceğiniz sıcak ve samimi bir ortam sunuyoruz. Misyonumuz, her seviyeden üyemize ilham vererek sağlıklı bir yaşam tarzını benimsetmektir.
+                                </p>
+</div>
+<div class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 p-0">
+<div class="flex flex-1 gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-white dark:bg-background-dark p-6 flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-4xl">neurology</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#111813] dark:text-white text-lg font-bold leading-tight">Reformer Pilates</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Aletli pilates ile vücudunuzu şekillendirin ve esnekliğinizi artırın.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-white dark:bg-background-dark p-6 flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-4xl">self_improvement</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#111813] dark:text-white text-lg font-bold leading-tight">Mat Pilates</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Mat üzerinde kendi vücut ağırlığınızla güçlenin ve denge kazanın.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-white dark:bg-background-dark p-6 flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-4xl">supervisor_account</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#111813] dark:text-white text-lg font-bold leading-tight">Özel Dersler</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Kişisel hedeflerinize yönelik size özel hazırlanmış programlarla çalışın.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 sm:px-6 lg:px-10 py-10">
+<h2 class="text-[#111813] dark:text-white text-center text-[28px] font-bold leading-tight tracking-[-0.015em] pb-6">Stüdyomuzdan Kareler</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" data-alt="Pilates stüdyosunun aydınlık iç mekanı" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJQebHPwcK4Ph_T09efeVizGRE0SFvfv9P3JDpD9LNh9AsGUGS_tWzrrEvHSPR-xMYyUVyyd9fxmGM8q0a_Gr-YApLZIwazlN4Cpw0qZ8TcoLHSkE6ILB7JKi3LLdXg40vgiqP_teRQZhyaAp9zk-eaTK2VyuogCaL25FUymPiJnSz99ptAcFDQfk5XM0t0cHCsjimuUQPN5dRFEmgmIImU94DhptwwiFrapWlGhf5C4Qaw1cLr1xXuMnKDA8nba2KFJonYlhWaAok");'></div>
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" data-alt="Ders sırasında pilates aletleri" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3nryR6xEe7iPfQx8YsBQUVVgHBzvVsRNk6CVZA2ZJ-rixsKMClgELiPtHm32WE1ZIP7ZMluiqL8bvRkImUSQIKLJS3Hz5dLdFUJKkqbbRiGdYh-WZBkN2wCe5dozOfqMtFGuvfC_q90svwN8rWYmHpqX2tXkn9irG8DEZDjCFHzYXuNxuQr74wkohZJzizxaRziSKIFkWCx_oSFFOccXQZdPqz3ol4XDTshRU_Tifxvd3kUdD1aYnRpYNS_m8KH-IOePVxsZZ0uSS");'></div>
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" data-alt="Pilates dersinde odaklanmış bir katılımcı" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbi_IqknuIyD2QktlbL_OEpf_PeTgzrnAtUYfz5peQ2AD1ybzjDqanHiuJApF0bqy2GtTGaBtVIq3BWZoIMVvM_ym1BCSq8aFEImGuYbmBCO3P2Qy_fuB7MV-teFs6VcWxsjT_l-WTyuxF37pYNeYPSM-teZhLv60hxgOPZkvBnfTFADA3BO6I5CPWTn8jrc7rm1UocmaMITzItaxEzWunZj_whLu1ZK-3iqDoP-d3z7amVjB_ehw4z77a05AG8NOQ3M2lz81X_jR0");'></div>
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" data-alt="Stüdyonun sakin dinlenme alanı" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqiXqceNCd8VzVxdPvR_Bn6YLZyve8-6Eh4N-uxZ2UTVcIVCt_6osHi00BQ3xfaZ1_-uCFT_Kc9yyRIPmmjo9jIK1IrlyiqvN1A4rd0_wDC8YRl9spHj7I-8J3c1n21Q2jaq8quspsHJfZrxfZVrHIGBVHlamjyT01BZ3l4T8JHvP5v33rZn-SZZWsvJHg0O_q7gHjTqzFz5XLL-95ZSPSnVMwSgqErDqGBW3bJ71Th2Rg5469FrnqC1aeVMQ0bGEo3DFa-p3RKR4_");'></div>
+</div>
+</section>
+<section class="w-full px-4 sm:px-10 lg:px-20 py-10">
+<h2 class="text-[#111813] dark:text-white text-center text-[28px] font-bold leading-tight tracking-[-0.015em] pb-6">Deneyimli Eğitmenlerimiz</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="flex flex-col items-center gap-4">
+<div class="w-40 h-40 bg-center bg-no-repeat aspect-square bg-cover rounded-full" data-alt="Eğitmen Ayşe Yılmaz'ın portresi" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAod3JmTSjIJD6KaJnBZgrLlFAjQ7TtBFbXv3s1DfaZJcjxrtWrbIG-IWvknL_z2z7HUEsZs6e6YygzHgRccbo5VKGjsAGIxy1GC7NhVwG4kzPm-5H5InYKMYe83m03mRPGOL0suiwv4hxTWjWVpWP89UjQyTRkh6m8oHDtJvljKnQWYnrIVoEoM3oZqzSZdCyiHZSNONpOPZ9AaXnS00-f5qtRmPHJ29ZlMIfEqQJtdpBFGJ-zavAuNJgKEOX97fozFExlumylfK3M");'></div>
+<div class="text-center">
+<h3 class="text-xl font-bold dark:text-white">Ayşe Yılmaz</h3>
+<p class="text-primary text-sm font-medium">Baş Eğitmen, Skolyoz Uzmanı</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="w-40 h-40 bg-center bg-no-repeat aspect-square bg-cover rounded-full" data-alt="Eğitmen Can Öztürk'ün portresi" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBlMZFnOQuniJobYTkgX0vCDHaMQQbP6jLmdwLUuwab5EFtLjwbHu4SOYnurkeNgO6P6Iy74Kwbc5S8YdhwOfnfk8ETDrq-DkwYFhKGDJ-OZ9ZoxO0PherivoK7mxp6EKDP-LMzvoJStWxj0h9i5H2-GivGFZ2Sm0gtRxx-MO3SHbCKE-RrkjWedVRAwcyL8SNqALCUtXxubbiUJl7iAQQpnSac9c8kne--g6yVvwONG2j2ndWvEZu_IsfjEnJsrlow-Whm_YccRXhz");'></div>
+<div class="text-center">
+<h3 class="text-xl font-bold dark:text-white">Can Öztürk</h3>
+<p class="text-primary text-sm font-medium">Reformer &amp; Klinik Pilates</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="w-40 h-40 bg-center bg-no-repeat aspect-square bg-cover rounded-full" data-alt="Eğitmen Zeynep Kaya'nın portresi" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2M-GHcoMfuYsE0-8HjgGgmjlILZXln7famtYHEHGr6ZWDNUdM7Jbtb9bYob5F5VjEo3ak6BkU99TgZ4CeG_Wo9Q1yJzbJ2Ou9BL1sOrFJZHYH0pdtMZM6pczfhPtceQ0yCZfsrtHU1LGBTSiEhPNJby17P2sWFeP-Ubq_zl0_jZp9HSVLo0qX-rjHgiTwEcJpi7l5_goJRHxL9Uyf5rlSWD5FB4K5mK0fcK7yCv1a9f38fJo9dQQaMxNfuOAQ9_YT6YFFbTqao3UG");'></div>
+<div class="text-center">
+<h3 class="text-xl font-bold dark:text-white">Zeynep Kaya</h3>
+<p class="text-primary text-sm font-medium">Hamile Pilatesi &amp; Mat Pilates</p>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full px-4 sm:px-10 lg:px-20 py-10 bg-white dark:bg-background-dark/50">
+<h2 class="text-[#111813] dark:text-white text-center text-[28px] font-bold leading-tight tracking-[-0.015em] pb-8">Üyelerimiz Ne Diyor?</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+<div class="flex flex-col items-center text-center gap-4 p-6 border rounded-xl border-gray-200/80 dark:border-gray-800/80">
+<span class="material-symbols-outlined text-primary text-4xl">format_quote</span>
+<p class="text-gray-700 dark:text-gray-300 italic">"Bu stüdyo hayatımı değiştirdi! Eğitmenlerin ilgisi ve atmosferin pozitifliği harika. Kendimi hiç bu kadar güçlü ve zinde hissetmemiştim."</p>
+<p class="font-bold text-[#111813] dark:text-white">- Elif S.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4 p-6 border rounded-xl border-gray-200/80 dark:border-gray-800/80">
+<span class="material-symbols-outlined text-primary text-4xl">format_quote</span>
+<p class="text-gray-700 dark:text-gray-300 italic">"Sıcak ve samimi bir ortam. Her seviyeye uygun dersler var. Pilates'e başlamak için mükemmel bir yer, kesinlikle tavsiye ediyorum."</p>
+<p class="font-bold text-[#111813] dark:text-white">- Murat K.</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+</div>
+</body>
+</html>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-4">
+<h3 class="text-lg font-bold text-[#111813] dark:text-white">Pilates Studio</h3>
+<p class="text-sm">Bedeninizle yeniden bağlantı kurun, gücünüzü ve dengenizi keşfedin.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-lg font-bold text-[#111813] dark:text-white">Hızlı Bağlantılar</h3>
+<a class="text-sm hover:text-primary dark:hover:text-primary" href="about.html">Hakkımızda</a>
+<a class="text-sm hover:text-primary dark:hover:text-primary" href="classes.html">Ders Programı</a>
+<a class="text-sm hover:text-primary dark:hover:text-primary" href="faq.html">S.S.S.</a>
+<a class="text-sm hover:text-primary dark:hover:text-primary" href="privacy.html">Gizlilik Politikası</a>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-lg font-bold text-[#111813] dark:text-white">İletişim</h3>
+<p class="text-sm">Örnek Mah. Pilates Sk. No:12/3, İstanbul</p>
+<p class="text-sm">info@pilatesstudio.com</p>
+<p class="text-sm">+90 212 123 45 67</p>
+</div>
+</div>
+<div class="border-t border-gray-200/80 dark:border-gray-800/80 mt-8 pt-6 text-center text-sm">
+<p>© 2024 Pilates Studio. Tüm hakları saklıdır.</p>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+<<<<<<< HEAD:homepage.html
+
+<script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+        menuToggle.querySelector('.material-symbols-outlined').textContent = 
+            mobileMenu.classList.contains('active') ? 'close' : 'menu';
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.querySelector('.material-symbols-outlined').textContent = 'menu';
+        }
+    });
+    
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
+    
+    // Check for saved theme preference or default to system preference
+    const currentTheme = localStorage.getItem('theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    
+    if (currentTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        updateDarkModeIcons('light_mode');
+    } else {
+        document.documentElement.classList.remove('dark');
+        updateDarkModeIcons('dark_mode');
+    }
+    
+    function updateDarkModeIcons(icon) {
+        if (darkModeToggle) {
+            darkModeToggle.querySelector('.material-symbols-outlined').textContent = icon;
+        }
+        if (darkModeToggleMobile) {
+            darkModeToggleMobile.querySelector('.material-symbols-outlined').textContent = icon;
+        }
+    }
+    
+    function toggleDarkMode() {
+        document.documentElement.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateDarkModeIcons(isDark ? 'light_mode' : 'dark_mode');
+    }
+    
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+    }
+    
+    if (darkModeToggleMobile) {
+        darkModeToggleMobile.addEventListener('click', toggleDarkMode);
+    }
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    
+    // Add loading state to CTA buttons
+    const ctaButtons = document.querySelectorAll('button:not(#menuToggle):not(#darkModeToggle):not(#darkModeToggleMobile)');
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            if (!this.closest('a')) {
+                e.preventDefault();
+                const originalText = this.querySelector('span').textContent;
+                this.classList.add('loading');
+                this.querySelector('span').textContent = 'Yükleniyor...';
+                
+                setTimeout(() => {
+                    this.classList.remove('loading');
+                    this.querySelector('span').textContent = originalText;
+                    window.location.href = 'contact.html';
+                }, 800);
+            }
+        });
+    });
+    
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
+</script>
+</body></html>
+=======
+</body></html>
+>>>>>>> daa6e1ec9866b2033538b0b6c05c5f7a0795f158:index.html
