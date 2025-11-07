@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang="tr">
+
+<html class="light" lang="tr">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ders Programı - Pilates Studio</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<link href="css/common.css" rel="stylesheet"/>
-<script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Pilates Stüdyosu - Hizmetlerimiz</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="css/common.css" rel="stylesheet"/>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
+                        /* Project-wide color variables (aligned with other pages) */
                         "primary": "#7d17b4",
                         "background-light": "#f7f6f8",
                         "background-dark": "#1b1121",
@@ -23,96 +25,195 @@
                     fontFamily: {
                         "display": ["Manrope", "sans-serif"]
                     },
-                    borderRadius: {
-                        "DEFAULT": "0.5rem",
-                        "lg": "1rem",
-                        "xl": "1.5rem",
-                        "full": "9999px"
-                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
                 },
             },
         }
     </script>
-<style>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24;
+        }
+
         body { font-family: 'Manrope', sans-serif; }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-[#111813] dark:text-gray-200">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200/80 dark:border-b-gray-800 px-4 sm:px-10 lg:px-20 py-4 fixed top-0 left-0 right-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
-<div class="flex items-center gap-4 text-primary">
-<div class="size-6">
-<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z"></path>
-</svg>
-</div>
-<h2 class="text-[#111813] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Pilates Studio</h2>
-</div>
-<div class="hidden md:flex flex-1 justify-end gap-8">
-<div class="flex items-center gap-9">
-<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="index.html">Ana Sayfa</a>
-<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="about.html">Hakkımızda</a>
-<a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="classes.html">Dersler</a>
-<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="pricing.html">Fiyatlar</a>
-                <a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="contact.html">İletişim</a>
-</div>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
-<span class="truncate">Ders Al</span>
-</button>
-<button id="darkModeToggle" class="ml-3 p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Tema değiştir">
-<span class="material-symbols-outlined text-2xl">dark_mode</span>
-</button>
-</div>
-<div class="md:hidden flex items-center gap-2">
-<button id="darkModeToggleMobile" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Tema değiştir">
-<span class="material-symbols-outlined text-2xl">dark_mode</span>
-</button>
-<button id="menuToggle" class="p-2" aria-label="Menüyü aç" aria-expanded="false">
-<span class="material-symbols-outlined text-3xl text-[#111813] dark:text-gray-200">menu</span>
-</button>
-</div>
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="mobile-menu fixed top-[73px] right-0 bottom-0 w-64 bg-white dark:bg-background-dark shadow-2xl z-40 md:hidden">
-<nav class="flex flex-col p-6 gap-4">
-<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="index.html">Ana Sayfa</a>
-<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="about.html">Hakkımızda</a>
-<a class="text-primary text-base font-bold py-2" href="classes.html">Dersler</a>
-<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="pricing.html">Fiyatlar</a>
-<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="contact.html">İletişim</a>
-<button class="mt-4 flex w-full cursor-pointer items-center justify-center rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold hover:opacity-90 transition-opacity">
-<span>Ders Al</span>
-</button>
-</nav>
-</div>
-</header>
-<main class="flex-1 pt-20">
-<section class="w-full px-4 sm:px-10 lg:px-20 py-10">
-<div class="mx-auto max-w-5xl flex flex-col items-center gap-8">
-<h1 class="text-3xl font-bold text-primary mb-6">Ders Programı</h1>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-<div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-center gap-2">
-<span class="material-symbols-outlined text-primary text-4xl mb-2">neurology</span>
-<h2 class="text-xl font-bold mb-2">Reformer Pilates</h2>
-<p class="text-primary dark:text-gray-400">Aletli pilates ile vücudunuzu şekillendirin ve esnekliğinizi artırın.</p>
-</div>
-<div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-center gap-2">
-<span class="material-symbols-outlined text-primary text-4xl mb-2">self_improvement</span>
-<h2 class="text-xl font-bold mb-2">Mat Pilates</h2>
-<p class="text-primary dark:text-gray-400">Mat üzerinde kendi vücut ağırlığınızla güçlenin ve denge kazanın.</p>
-</div>
-<div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-center gap-2">
-<span class="material-symbols-outlined text-primary text-4xl mb-2">supervisor_account</span>
-<h2 class="text-xl font-bold mb-2">Özel Dersler</h2>
-<p class="text-primary dark:text-gray-400">Kişisel hedeflerinize yönelik size özel hazırlanmış programlarla çalışın.</p>
-</div>
-</div>
-</div>
-</section>
-</main>
-</div>
-</div>
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200/80 dark:border-b-gray-800 px-4 sm:px-10 lg:px-20 py-4 fixed top-0 left-0 right-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+                <div class="flex items-center gap-4 text-primary">
+                    <div class="size-6">
+                        <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-[#111813] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Pilates Studio</h2>
+                </div>
+                <div class="hidden md:flex flex-1 justify-end gap-8">
+                    <div class="flex items-center gap-9">
+                        <a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="index.html">Ana Sayfa</a>
+                        <a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="about.html">Hakkımızda</a>
+                        <a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="classes.html">Dersler</a>
+                        <a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="pricing.html">Fiyatlar</a>
+                        <a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="contact.html">İletişim</a>
+                    </div>
+                    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+                        <span class="truncate">Ders Al</span>
+                    </button>
+                    <button id="darkModeToggle" class="ml-3 p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Tema değiştir">
+                        <span class="material-symbols-outlined text-2xl">dark_mode</span>
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="darkModeToggleMobile" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Tema değiştir">
+                        <span class="material-symbols-outlined text-2xl">dark_mode</span>
+                    </button>
+                    <button id="menuToggle" class="p-2" aria-label="Menüyü aç" aria-expanded="false">
+                        <span class="material-symbols-outlined text-3xl text-[#111813] dark:text-gray-200"> menu </span>
+                    </button>
+                </div>
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" class="mobile-menu fixed top-[73px] right-0 bottom-0 w-64 bg-white dark:bg-background-dark shadow-2xl z-40 md:hidden">
+                    <nav class="flex flex-col p-6 gap-4">
+                        <a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="index.html">Ana Sayfa</a>
+                        <a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="about.html">Hakkımızda</a>
+                        <a class="text-primary text-base font-bold py-2" href="classes.html">Dersler</a>
+                        <a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="pricing.html">Fiyatlar</a>
+                        <a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="contact.html">İletişim</a>
+                        <button class="mt-4 flex w-full cursor-pointer items-center justify-center rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold hover:opacity-90 transition-opacity">
+                            <span>Ders Al</span>
+                        </button>
+                    </nav>
+                </div>
+            </header>
 
-<script src="js/main.js"></script>
+            <main class="flex flex-1 justify-center py-5">
+                <div class="layout-content-container flex flex-col w-full max-w-5xl flex-1 px-4 sm:px-6 lg:px-8">
+                    <div class="@container mb-12">
+                        <div class="@[480px]:p-4">
+                            <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 rounded-xl items-center justify-center p-4 text-center" data-alt="Woman doing pilates on a reformer machine in a bright, airy studio." style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBIO6VOFu_-lYpgv9wiJi4z7owGfYyUSi2_3LWNKo0aKp4IcmtvokmH5w8r6wJ_VyTtI-ufj170q7agVHO3R2rP1_oWQJUntREXc8j6x5NjjyxW1lLs04pQh72cj1IrVjpm_1uLZUXDlec2FyLeIrxRqXXwbXQkFLlnhnHrRxEyFCqG5zZEthPW16CYX428UdjUK6LYbUgGSuZm8NKH1LZbDd8ZMNdhq870L1CU4f4NXyHmjDldHKAPAOmvHP9N8BSdzZGBdsDK9VYe");'>
+                                <div class="flex flex-col gap-2">
+                                    <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">Hizmetlerimiz ve Paketlerimiz</h1>
+                                    <h2 class="text-white/90 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal max-w-lg">Vücudunuza ve ruhunuza iyi gelecek, size özel hazırlanmış pilates derslerini ve üyelik seçeneklerini keşfedin.</h2>
+                                </div>
+                                <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-[#111813] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:brightness-90 transition-all">
+                                    <span class="truncate">Ücretsiz Tanıtım Dersine Katıl!</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="text-[#111813] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Derslerimiz</h2>
+                    <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 p-4">
+                        <div class="flex flex-col gap-4 p-6 bg-white dark:bg-background-dark/50 rounded-xl border border-gray-200 dark:border-gray-800 hover:shadow-lg hover:-translate-y-1 transition-all">
+                            <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="A person on a reformer pilates machine." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKjwStzvb0V3HID7bSwEDIG7-9jPDJyy3V6v0F045txbH6QlLSGzWTjA6MADC-optaQHHLRQytgxjX4is3XkiTs6iSGVwiS7tSGelnvjNdMqSUSHOHKxk_NHiInXg5gtTqsaO3bUnJzAuwc4HTFIq-ZEn--yK3gfS7dq6glx5slV2HylXwYAeewvkwPaXvacD0UlrRzRNkKpEQeqYGwoGEvZtVjVIykRfKlzfH92lu7CSBsVqTNOOElq9ODZL_51ZGrhF3hKci0grf");'></div>
+                            <div>
+                                <p class="text-[#111813] dark:text-white text-lg font-bold leading-normal">Reformer Pilates</p>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal mt-1">Aletli pilates ile gücü ve esnekliği bir arada deneyimleyin, duruşunuzu düzeltin.</p>
+                            </div>
+                            <button class="mt-auto w-full flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-[#111813] dark:text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/40 transition-colors">
+                                <span class="truncate">Detayları Gör</span>
+                            </button>
+                        </div>
+
+                        <div class="flex flex-col gap-4 p-6 bg-white dark:bg-background-dark/50 rounded-xl border border-gray-200 dark:border-gray-800 hover:shadow-lg hover:-translate-y-1 transition-all">
+                            <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="A group of people doing mat pilates." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA0e40mmv_UanvVI-1TNWVmV_J5CFGA0w8g9RpQY56QSg-jPK-YVvhmqo55lELg1aBYo8RhH0j3bn19e2i16r5NTTlYtK4CqHIrUuNxzyFtCyjJwu1O22td-yoan3swYScewekchRJ8p2SGztDA1evSDbiZvC4diocLShESC3CYZiFxxz9ssC5drBErvlymxAMLe5okFrGZfRM5Kl1EY8nhdqvvFMdNoioKGZ1Ge0fK-0t5Ne7OeZNyBi-xi_kbKFREpC3gyktZ0rLd");'></div>
+                            <div>
+                                <p class="text-[#111813] dark:text-white text-lg font-bold leading-normal">Mat Pilates</p>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal mt-1">Kendi vücut ağırlığınızla temelleri sağlamlaştırın ve merkez bölgenizi güçlendirin.</p>
+                            </div>
+                            <button class="mt-auto w-full flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-[#111813] dark:text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/40 transition-colors">
+                                <span class="truncate">Detayları Gör</span>
+                            </button>
+                        </div>
+
+                        <div class="flex flex-col gap-4 p-6 bg-white dark:bg-background-dark/50 rounded-xl border border-gray-200 dark:border-gray-800 hover:shadow-lg hover:-translate-y-1 transition-all">
+                            <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="A pregnant woman doing pilates exercises." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDW1c05QYNDu3DwmOmDSj54vfixPegXDqP2568B8i3mWox8wUlXs4q4z1Axk81BE4JTrQBs6pEj9grYYEyOstOjAJ1M4hG6Jn9l0yimFPH5LqFOoD5WuPkHdfqwEr-yGcD5ossCrVNUhOj-_Zj3S8M86ZUAQSxKqMfmYMmXutl7kHgjiP_-kYS-fEdu4pVA266fE9SBQcT-kA34tLB_ADCJQM7f8tMXxbjPbjEaKtCHDYazXv6uuvSINu6WqOm0GYEh478zltoPkfF4");'></div>
+                            <div>
+                                <p class="text-[#111813] dark:text-white text-lg font-bold leading-normal">Hamile Pilatesi</p>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal mt-1">Hamilelik sürecine özel güvenli ve destekleyici egzersizlerle rahat bir hamilelik geçirin.</p>
+                            </div>
+                            <button class="mt-auto w-full flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-[#111813] dark:text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/40 transition-colors">
+                                <span class="truncate">Detayları Gör</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <h2 class="text-[#111813] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-12">Üyelik Paketlerimiz</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
+                        <div class="flex flex-col p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark/50">
+                            <h3 class="text-base font-bold text-primary">Tanışma Paketi</h3>
+                            <p class="text-3xl font-bold mt-2 text-[#111813] dark:text-white">₺350</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">1 Ders</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-4 flex-grow">Stüdyomuzla tanışmak için harika bir başlangıç. İlk dersinize özel.</p>
+                            <button class="w-full mt-6 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-[#111813] dark:text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/40 transition-colors">Satın Al</button>
+                        </div>
+
+                        <div class="flex flex-col p-6 rounded-xl border border-primary bg-primary/5 dark:bg-background-dark/50 ring-2 ring-primary">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-base font-bold text-primary">5 Ders Paketi</h3>
+                                <span class="text-xs font-bold bg-primary text-[#111813] px-2 py-1 rounded-full">Popüler</span>
+                            </div>
+                            <p class="text-3xl font-bold mt-2 text-[#111813] dark:text-white">₺1.500</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">1 ay geçerli</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-4 flex-grow">Düzenli pratiğe başlamak için ideal paket. Daha esnek ve güçlü hissedin.</p>
+                            <button class="w-full mt-6 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-[#111813] text-sm font-bold leading-normal tracking-[0.015em] hover:brightness-90 transition-all">Satın Al</button>
+                        </div>
+
+                        <div class="flex flex-col p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark/50">
+                            <h3 class="text-base font-bold text-primary">10 Ders Paketi</h3>
+                            <p class="text-3xl font-bold mt-2 text-[#111813] dark:text-white">₺2.800</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2 ay geçerli</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-4 flex-grow">Pilatesi hayatınızın bir parçası haline getirin ve değişimi görün.</p>
+                            <button class="w-full mt-6 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-[#111813] dark:text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/40 transition-colors">Satın Al</button>
+                        </div>
+
+                        <div class="flex flex-col p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark/50">
+                            <h3 class="text-base font-bold text-primary">Aylık Sınırsız</h3>
+                            <p class="text-3xl font-bold mt-2 text-[#111813] dark:text-white">₺3.500</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Aylık üyelik</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-4 flex-grow">Sınırları zorlamak isteyenler için. Dilediğiniz kadar derse katılın.</p>
+                            <button class="w-full mt-6 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-[#111813] dark:text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/40 transition-colors">Satın Al</button>
+                        </div>
+                    </div>
+
+                    <h2 class="text-[#111813] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-12">Sıkça Sorulan Sorular</h2>
+                    <div class="space-y-4 p-4">
+                        <details class="group rounded-lg bg-white dark:bg-background-dark/50 p-4 border border-gray-200 dark:border-gray-800 cursor-pointer">
+                            <summary class="flex items-center justify-between font-medium text-[#111813] dark:text-white">
+                                İlk dersime gelirken ne getirmeliyim?
+                                <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                            </summary>
+                            <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">Rahat spor kıyafetleri ve bir su şişesi getirmeniz yeterlidir. Mat ve diğer tüm ekipmanlar stüdyomuzda mevcuttur. Dilerseniz kendi matınızı da getirebilirsiniz.</p>
+                        </details>
+
+                        <details class="group rounded-lg bg-white dark:bg-background-dark/50 p-4 border border-gray-200 dark:border-gray-800 cursor-pointer">
+                            <summary class="flex items-center justify-between font-medium text-[#111813] dark:text-white">
+                                Dersleri iptal edebilir miyim?
+                                <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                            </summary>
+                            <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">Evet, dersinizi dersten en az 12 saat önce iptal edebilirsiniz. Aksi takdirde, ders hakkınız kullanılmış sayılacaktır. Anlayışınız için teşekkür ederiz.</p>
+                        </details>
+
+                        <details class="group rounded-lg bg-white dark:bg-background-dark/50 p-4 border border-gray-200 dark:border-gray-800 cursor-pointer">
+                            <summary class="flex items-center justify-between font-medium text-[#111813] dark:text-white">
+                                Paketlerin geçerlilik süresi var mı?
+                                <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                            </summary>
+                            <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">Evet, her paketin kendine özgü bir geçerlilik süresi bulunmaktadır. Paket detaylarında belirtilen süreler içerisinde ders haklarınızı kullanmanız gerekmektedir. Süre uzatımı yapılmamaktadır.</p>
+                        </details>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
