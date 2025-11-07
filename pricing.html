@@ -34,7 +34,6 @@
         }
     </script>
     <meta name="description" content="Pilates Studio - paketler ve fiyatlar. Bireysel ders, aylık paket ve kampanyalar. Ücretsiz tanıtım dersleri ve özel indirimler.">
-    <!-- Open Graph -->
     <meta property="og:title" content="Pilates Studio - Fiyatlar">
     <meta property="og:description" content="Pilates Studio paketleri: tek ders, aylık paket, 3 aylık kampanya. Size uygun planı seçin.">
     <meta property="og:type" content="website">
@@ -64,96 +63,90 @@
 <div class="mx-auto max-w-5xl flex flex-col items-center gap-8">
 </div>
 
-<h1 class="text-3xl font-bold text-primary mb-2">Fiyatlar</h1>
-<p class="text-gray-700 dark:text-gray-300 text-center max-w-2xl mb-6">Size uygun planı seçin. Paketlerin içinde neler olduğunu, kaç ders olduğunu ve hangi avantajları sunduğunu aşağıda görebilirsiniz. Satın almak için "Satın Al" butonuna tıklayın veya iletişim formunu kullanın.</p>
+<h1 class="text-3xl font-bold text-primary mb-2 text-center">Fiyatlar</h1>
+<p class="text-gray-700 dark:text-gray-300 text-center max-w-2xl mb-6 mx-auto">Size uygun planı seçin. Paketlerin içinde neler olduğunu, kaç ders olduğunu ve hangi avantajları sunduğunu aşağıda görebilirsiniz. Rezervasyon için butona tıklayın.</p>
 
-<!-- Compare toggle -->
-<div class="flex items-center gap-3 mb-4">
+<div class="flex items-center justify-center gap-3 mb-4">
     <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
         <input id="compareToggle" type="checkbox" class="w-4 h-4" />
         Karşılaştırma tablosunu göster
     </label>
 </div>
 
-<!-- Compare table (hidden by default) -->
 <div id="compareTable" class="hidden w-full overflow-auto mb-6">
-    <table class="w-full text-sm border-collapse">
+    <table class="w-full text-sm border-collapse dark:text-gray-300">
         <thead>
-            <tr class="text-left">
-                <th class="py-2">Özellik</th>
-                <th class="py-2">Tek Ders</th>
-                <th class="py-2">8 Ders / Aylık</th>
-                <th class="py-2">3 Ay Kampanya</th>
+            <tr class="text-left bg-gray-100 dark:bg-gray-700/50">
+                <th class="py-3 px-2 border-b dark:border-gray-700">Özellik</th>
+                <th class="py-3 px-2 border-b dark:border-gray-700">Tek Ders</th>
+                <th class="py-3 px-2 border-b dark:border-gray-700">8 Ders / Aylık</th>
+                <th class="py-3 px-2 border-b dark:border-gray-700">3 Ay Kampanya</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td class="py-2">Ders sayısı</td><td>1</td><td>8</td><td>24</td></tr>
-            <tr><td class="py-2">Geçerlilik</td><td>-</td><td>1 ay</td><td>3 ay</td></tr>
-            <tr><td class="py-2">Özel indirim</td><td>Yok</td><td>%5</td><td>%15</td></tr>
-            <tr><td class="py-2">Reformer erişimi</td><td>✓</td><td>✓</td><td>✓</td></tr>
-            <tr><td class="py-2">Özel ders desteği</td><td>Opsiyonel</td><td>Opsiyonel</td><td>Ücretsiz 1 Oturum</td></tr>
+            <tr class="border-b dark:border-gray-800"><td class="py-2 px-2">Ders sayısı</td><td>1</td><td>8</td><td>24</td></tr>
+            <tr class="border-b dark:border-gray-800"><td class="py-2 px-2">Geçerlilik</td><td>-</td><td>1 ay</td><td>3 ay</td></tr>
+            <tr class="border-b dark:border-gray-800"><td class="py-2 px-2">Özel indirim</td><td>Yok</td><td>%5</td><td>%15</td></tr>
+            <tr class="border-b dark:border-gray-800"><td class="py-2 px-2">Reformer erişimi</td><td>✓</td><td>✓</td><td>✓</td></tr>
+            <tr><td class="py-2 px-2">Özel ders desteği</td><td>Opsiyonel</td><td>Opsiyonel</td><td>Ücretsiz 1 Oturum</td></tr>
         </tbody>
     </table>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-    <!-- Card: Single -->
-    <div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-start gap-4">
+    <div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-start gap-4 card-hover">
         <div class="flex items-center justify-between w-full">
-            <h2 class="text-xl font-bold">Tek Ders</h2>
+            <h2 class="text-xl font-bold dark:text-white">Tek Ders</h2>
             <p class="text-2xl font-bold text-primary">₺350</p>
         </div>
         <p class="text-sm text-gray-600 dark:text-gray-400">Bir kere denemek isteyenler için ideal.</p>
-        <ul class="mt-2 space-y-2 text-sm text-gray-600 dark:text-gray-400">
-            <li>• 45 dakikalık ders</li>
-            <li>• Alet veya mat kullanımı</li>
-            <li>• Ekipman temini</li>
+        <ul class="mt-2 space-y-2 text-sm text-gray-600 dark:text-gray-400 list-disc pl-5">
+            <li>45 dakikalık ders</li>
+            <li>Alet veya mat kullanımı</li>
+            <li>Ekipman temini</li>
         </ul>
         <div class="mt-4 w-full">
-            <a class="w-full inline-block text-center px-4 py-2 rounded-lg bg-primary/20 text-[#111813] hover:bg-primary/40 transition-colors" href="mailto:info@pilatesstudio.com?subject=Sat%C4%B1n%20Alma%20-%20Tek%20Ders">Satın Al</a>
+            <button data-modal-target="purchaseModal" data-plan="Tek Ders" class="w-full inline-block text-center px-4 py-3 rounded-xl bg-primary/20 text-[#111813] dark:text-white font-bold hover:bg-primary/40 transition-colors transform hover:scale-[1.01]">Satın Al</button>
         </div>
     </div>
 
-    <!-- Card: Monthly -->
-    <div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-start gap-4 border border-primary ring-2 ring-primary">
+    <div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-start gap-4 border border-primary ring-2 ring-primary card-hover">
         <div class="flex items-center justify-between w-full">
-            <h2 class="text-xl font-bold">Aylık Paket (8 Ders)</h2>
-            <p class="text-2xl font-bold text-[#111813]">₺2.400</p>
+            <h2 class="text-xl font-bold dark:text-white">Aylık Paket (8 Ders)</h2>
+            <p class="text-2xl font-bold text-primary">₺2.400</p>
         </div>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Düzenli pratik yapmak isteyenler için.</p>
-        <ul class="mt-2 space-y-2 text-sm text-gray-600 dark:text-gray-400">
-            <li>• Haftada 2 ders (toplam 8 ders)</li>
-            <li>• Esneklik ve güç odaklı program</li>
-            <li>• %5 paket indirimi</li>
-            <li>• 1 seans ücretsiz değerlendirme</li>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Düzenli pratik yapmak isteyenler için. **En Popüler**</p>
+        <ul class="mt-2 space-y-2 text-sm text-gray-600 dark:text-gray-400 list-disc pl-5">
+            <li>Haftada 2 ders (toplam 8 ders)</li>
+            <li>Esneklik ve güç odaklı program</li>
+            <li>%5 paket indirimi</li>
+            <li>1 seans ücretsiz değerlendirme</li>
         </ul>
-        <div class="mt-4 w-full flex gap-2">
-            <a class="flex-1 inline-block text-center px-4 py-2 rounded-lg bg-primary text-[#111813] font-bold hover:brightness-90 transition-all" href="mailto:info@pilatesstudio.com?subject=Sat%C4%B1n%20Alma%20-%208%20Ders%20Paket">Satın Al</a>
-            <button data-modal-target="purchaseModal" data-plan="8 Ders Paketi" class="flex-1 px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary/10 transition-colors">Hemen Rezervasyon</button>
+        <div class="mt-4 w-full">
+            <button data-modal-target="purchaseModal" data-plan="8 Ders / Aylık Paket" class="w-full inline-block text-center px-4 py-3 rounded-xl bg-primary text-white font-bold hover:brightness-90 transition-all transform hover:scale-[1.02] focus:ring-4 focus:ring-primary/50">Hemen Rezervasyon</button>
         </div>
     </div>
 
-    <!-- Card: Campaign -->
-    <div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-start gap-4">
+    <div class="rounded-xl bg-white dark:bg-background-dark p-6 shadow text-center flex flex-col items-start gap-4 card-hover">
         <div class="flex items-center justify-between w-full">
-            <h2 class="text-xl font-bold">3 Ay Kampanya (24 Ders)</h2>
+            <h2 class="text-xl font-bold dark:text-white">3 Ay Kampanya (24 Ders)</h2>
             <p class="text-2xl font-bold text-primary">₺6.600</p>
         </div>
-        <p class="text-sm text-gray-600 dark:text-gray-400">En çok tasarruf sağlayan paketimiz.</p>
-        <ul class="mt-2 space-y-2 text-sm text-gray-600 dark:text-gray-400">
-            <li>• Haftada 2 ders (toplam 24 ders)</li>
-            <li>• %15 kampanya indirimi</li>
-            <li>• 1 ücretsiz özel ders</li>
-            <li>• Öncelikli seans rezervasyonu</li>
+        <p class="text-sm text-gray-600 dark:text-gray-400">En çok tasarruf sağlayan uzun dönem paketimiz.</p>
+        <ul class="mt-2 space-y-2 text-sm text-gray-600 dark:text-gray-400 list-disc pl-5">
+            <li>Haftada 2 ders (toplam 24 ders)</li>
+            <li>%15 kampanya indirimi</li>
+            <li>1 ücretsiz özel ders</li>
+            <li>Öncelikli seans rezervasyonu</li>
         </ul>
         <div class="mt-4 w-full">
-            <a class="w-full inline-block text-center px-4 py-2 rounded-lg bg-primary/20 text-[#111813] hover:bg-primary/40 transition-colors" href="mailto:info@pilatesstudio.com?subject=Sat%C4%B1n%20Alma%20-%203%20Ay%20Kampanya">Satın Al</a>
+            <button data-modal-target="purchaseModal" data-plan="3 Ay Kampanya (24 Ders)" class="w-full inline-block text-center px-4 py-3 rounded-xl bg-primary/20 text-[#111813] dark:text-white font-bold hover:bg-primary/40 transition-colors transform hover:scale-[1.01]">Satın Al</button>
         </div>
     </div>
 </div>
 
 <div class="mt-8 w-full bg-white dark:bg-background-dark/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800">
-    <h3 class="text-lg font-bold mb-2">Ödeme & İptal Politikası</h3>
+    <h3 class="text-lg font-bold dark:text-white mb-2">Ödeme & İptal Politikası</h3>
     <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
         <li>• Ödemeler kredi kartı veya havale ile yapılabilir. Kredi kartı ödemeleri için bizimle iletişime geçin.</li>
         <li>• Ders iptalleri için en az 12 saat öncesinden haber veriniz; aksi durumda ders hakkı kullanılmış sayılır.</li>
@@ -161,24 +154,23 @@
     </ul>
 </div>
 
-<!-- Purchase modal -->
 <div id="modalOverlay" class="hidden fixed inset-0 bg-black/40 z-50"></div>
 <div id="purchaseModal" class="hidden fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-lg bg-white dark:bg-background-dark p-6 rounded-xl shadow-lg">
     <div class="flex justify-between items-center mb-4">
-        <h3 class="text-lg font-bold">Rezervasyon</h3>
-        <button data-modal-close class="text-gray-600 hover:text-gray-900">Kapat</button>
+        <h3 class="text-lg font-bold dark:text-white">Rezervasyon</h3>
+        <button data-modal-close class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Kapat</button>
     </div>
     <form action="mailto:info@pilatesstudio.com" method="GET">
         <input type="hidden" name="plan" value="" />
-        <label class="text-sm">Adınız</label>
-        <input class="w-full p-2 rounded mt-1 mb-3 border" name="name" required />
-        <label class="text-sm">Telefon</label>
-        <input class="w-full p-2 rounded mt-1 mb-3 border" name="phone" required />
-        <label class="text-sm">Tercih edilen tarih / saat</label>
-        <input class="w-full p-2 rounded mt-1 mb-3 border" name="datetime" />
+        <label class="text-sm dark:text-gray-300">Adınız</label>
+        <input class="w-full p-2 rounded mt-1 mb-3 border dark:bg-gray-700 dark:border-gray-600 dark:text-white" name="name" required />
+        <label class="text-sm dark:text-gray-300">Telefon</label>
+        <input class="w-full p-2 rounded mt-1 mb-3 border dark:bg-gray-700 dark:border-gray-600 dark:text-white" name="phone" required />
+        <label class="text-sm dark:text-gray-300">Tercih edilen tarih / saat</label>
+        <input class="w-full p-2 rounded mt-1 mb-3 border dark:bg-gray-700 dark:border-gray-600 dark:text-white" name="datetime" />
         <div class="flex gap-2">
-            <button type="submit" class="flex-1 px-4 py-2 rounded bg-primary text-[#111813] font-bold">Gönder</button>
-            <button type="button" data-modal-close class="flex-1 px-4 py-2 rounded border">İptal</button>
+            <button type="submit" class="flex-1 px-4 py-2 rounded bg-primary text-white font-bold hover:brightness-90 transition-all">Gönder</button>
+            <button type="button" data-modal-close class="flex-1 px-4 py-2 rounded border dark:border-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">İptal</button>
         </div>
     </form>
 </div>
