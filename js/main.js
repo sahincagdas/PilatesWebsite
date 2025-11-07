@@ -154,8 +154,8 @@ function initKeyboardNavigation() {
     });
 }
 
-// Initialize all features when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize all features when DOM is ready (or immediately if script loaded after DOM)
+function initAll() {
     initMobileMenu();
     initDarkMode();
     initSmoothScroll();
@@ -165,7 +165,14 @@ document.addEventListener('DOMContentLoaded', () => {
     initActiveNav();
     initModals();
     initCompareToggle();
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+} else {
+    // DOM already ready — run immediately
+    initAll();
+}
 
 // Highlight active navigation link based on current pathname
 function initActiveNav() {

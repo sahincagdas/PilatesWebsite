@@ -57,52 +57,7 @@
 <body class="bg-background-light dark:bg-background-dark font-display text-[#111813] dark:text-gray-200">
 <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200/80 dark:border-b-gray-800 px-4 sm:px-10 lg:px-20 py-4 fixed top-0 left-0 right-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
-<div class="flex items-center gap-4 text-primary">
-<div class="size-6">
-<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z"></path>
-</svg>
-</div>
-<h2 class="text-[#111813] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Pilates Studio</h2>
-</div>
-<div class="hidden md:flex flex-1 justify-end gap-8">
-<div class="flex items-center gap-9">
-<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="index.html">Ana Sayfa</a>
-<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="about.html">Hakkımızda</a>
-<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="classes.html">Dersler</a>
-                <a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="pricing.html">Fiyatlar</a>
-<a class="text-[#111813] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal hover:text-primary" href="contact.html">İletişim</a>
-</div>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
-<span class="truncate">Ders Al</span>
-</button>
-<button id="darkModeToggle" class="ml-3 p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Tema değiştir">
-<span class="material-symbols-outlined text-2xl">dark_mode</span>
-</button>
-</div>
-<div class="md:hidden flex items-center gap-2">
-<button id="darkModeToggleMobile" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Tema değiştir">
-<span class="material-symbols-outlined text-2xl">dark_mode</span>
-</button>
-<button id="menuToggle" class="p-2" aria-label="Menüyü aç" aria-expanded="false">
-<span class="material-symbols-outlined text-3xl text-[#111813] dark:text-gray-200">menu</span>
-</button>
-</div>
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="mobile-menu fixed top-[73px] right-0 bottom-0 w-64 bg-white dark:bg-background-dark shadow-2xl z-40 md:hidden">
-<nav class="flex flex-col p-6 gap-4">
-<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="index.html">Ana Sayfa</a>
-<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="about.html">Hakkımızda</a>
-<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="classes.html">Dersler</a>
-<a class="text-primary text-base font-bold py-2" href="pricing.html">Fiyatlar</a>
-<a class="text-[#111813] dark:text-gray-300 text-base font-medium py-2 hover:text-primary transition-colors" href="contact.html">İletişim</a>
-<button class="mt-4 flex w-full cursor-pointer items-center justify-center rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold hover:opacity-90 transition-opacity">
-<span>Ders Al</span>
-</button>
-</nav>
-</div>
-</header>
+<div id="siteHeader"></div>
 <div class="site-container">
 <main class="flex-1 pt-20">
 <section class="w-full px-4 sm:px-10 lg:px-20 py-10">
@@ -244,35 +199,34 @@
 </main>
 </div>
 
-<footer class="w-full px-4 sm:px-10 lg:px-20 py-10 bg-white dark:bg-background-dark/50">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="flex flex-col gap-4">
-            <h3 class="text-lg font-bold text-[#111813] dark:text-white">Pilates Studio</h3>
-            <p class="text-sm">Bedeninizle yeniden bağlantı kurun, gücünüzü ve dengenizi keşfedin.</p>
-        </div>
-        <div class="flex flex-col gap-4">
-            <h3 class="text-lg font-bold text-[#111813] dark:text-white">Hızlı Bağlantılar</h3>
-            <a class="text-sm hover:text-primary dark:hover:text-primary" href="index.html">Ana Sayfa</a>
-            <a class="text-sm hover:text-primary dark:hover:text-primary" href="about.html">Hakkımızda</a>
-            <a class="text-sm hover:text-primary dark:hover:text-primary" href="classes.html">Ders Programı</a>
-            <a class="text-sm hover:text-primary dark:hover:text-primary" href="faq.html">S.S.S.</a>
-            <a class="text-sm hover:text-primary dark:hover:text-primary" href="privacy.html">Gizlilik Politikası</a>
-        </div>
-        <div class="flex flex-col gap-4">
-            <h3 class="text-lg font-bold text-[#111813] dark:text-white">İletişim</h3>
-            <p class="text-sm">Örnek Mah. Pilates Sk. No:12/3, İstanbul</p>
-            <p class="text-sm">info@pilatesstudio.com</p>
-            <p class="text-sm">+90 212 123 45 67</p>
-        </div>
-    </div>
-    <div class="border-t border-gray-200/80 dark:border-gray-800/80 mt-8 pt-6 text-center text-sm">
-        <p>© 2024 Pilates Studio. Tüm hakları saklıdır.</p>
-    </div>
-</footer>
+<div id="siteFooter"></div>
 
 </div>
 </div>
 
-<script src="js/main.js"></script>
+<script>
+    // Load header/footer partials before main.js so main initializers can bind to injected elements
+    (async function(){
+        async function loadInto(selector, url) {
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('Fetch failed: ' + res.status);
+                const html = await res.text();
+                const el = document.querySelector(selector);
+                if (el) el.innerHTML = html;
+            } catch (err) {
+                console.error('Failed to load', url, err);
+            }
+        }
+
+        await loadInto('#siteHeader', 'partials/header.html');
+        await loadInto('#siteFooter', 'partials/footer.html');
+
+        // After partials injected, load the global main.js
+        const s = document.createElement('script');
+        s.src = 'js/main.js';
+        document.body.appendChild(s);
+    })();
+</script>
 </body>
 </html>
