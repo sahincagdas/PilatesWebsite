@@ -2,34 +2,89 @@
 // Reusable functions for all pages
 
 // Mobile Menu Toggle
+// Mobile Menu Toggle - GÜNCELLENMİŞ VERSİYON
 function initMobileMenu() {
     const menuToggle = document.getElementById('menuToggle');
+    const closeMenuButton = document.getElementById('closeMenu'); // Yeni eklenen kapatma butonu için
     const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
     
-    if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-            menuToggle.querySelector('.material-symbols-outlined').textContent = 
-                mobileMenu.classList.contains('active') ? 'close' : 'menu';
+    if (menuToggle && mobileMenu && mobileOverlay) {
+        
+        const openMenu = () => {
+            // 1. Overlay'i hemen görünür yap (gizliliği kaldır) ve karartma animasyonunu başlat
+            mobileOverlay.classList.remove('hidden');
+            // Menü ve overlay'e 'active' sınıfı ekleyerek animasyonu tetikleyelim
+            mobileMenu.classList.add('active'); 
+            
+            // 2. Menüyü ekran içine kaydır (translate-x-full sınıfını kaldır)
+            mobileMenu.classList.remove('translate-x-full');
+            // 3. Opaklık animasyonunu başlat (Bu, overlay'deki opacity-0 class'ını kaldırır)
+            mobileOverlay.classList.remove('opacity-0');
+            
+            // 4. Erişilebilirlik ve ikonlar
+            menuToggle.setAttribute('aria-expanded', 'true');
+            const icon = menuToggle.querySelector('.material-symbols-outlined');
+            if (icon) icon.textContent = 'close'; // Menü açma butonunun ikonunu 'kapat' yap
+            
+            // 5. Sayfa kaydırmayı engelle
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeMenu = () => {
+            // 1. Menüyü ekran dışına kaydır (translate-x-full sınıfını ekle)
+            mobileMenu.classList.add('translate-x-full');
+            // 2. Karartma animasyonunu tersine çevir (opacity-0 ekle)
+            mobileOverlay.classList.add('opacity-0');
+            
+            // Menüden 'active' sınıfını kaldır
+            mobileMenu.classList.remove('active'); 
+
+            // 3. CSS geçişi (transition) tamamlandıktan sonra (300ms) hidden sınıfını ekle
+            setTimeout(() => {
+                mobileOverlay.classList.add('hidden');
+            }, 300); // HTML'deki duration-300 süresi ile uyumlu olmalı
+            
+            // 4. Erişilebilirlik ve ikonlar
+            menuToggle.setAttribute('aria-expanded', 'false');
+            const icon = menuToggle.querySelector('.material-symbols-outlined');
+            if (icon) icon.textContent = 'menu'; // Menü açma butonunun ikonunu 'menü' yap
+
+            // 5. Sayfa kaydırmayı geri yükle
+            document.body.style.overflow = '';
+        };
+
+        // Menü Açma/Kapama İkonuna Tıklama
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Menü açıkken 'active' class'ı ekleniyor
+            if (mobileMenu.classList.contains('active')) closeMenu(); 
+            else openMenu();
         });
         
-        // Close mobile menu when clicking outside
+        // Yeni Kapatma Butonuna Tıklama (Menü içindeki 'X' butonu)
+        if (closeMenuButton) {
+            closeMenuButton.addEventListener('click', closeMenu);
+        }
+
+        // Overlay'e Tıklama
+        mobileOverlay.addEventListener('click', closeMenu);
+
+        // Menü dışına tıklama (Kapatma ikonu hariç)
         document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                menuToggle.querySelector('.material-symbols-outlined').textContent = 'menu';
+            // Menü açıksa VE tıklanan yer menü veya menü butonunun dışında ise kapat
+            if (mobileMenu.classList.contains('active') && 
+                !mobileMenu.contains(e.target) && 
+                !menuToggle.contains(e.target)) 
+            {
+                closeMenu();
             }
         });
-        
-        // Close on escape key
+
+        // Escape tuşuna basma
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                menuToggle.querySelector('.material-symbols-outlined').textContent = 'menu';
+                closeMenu();
             }
         });
     }
@@ -116,9 +171,15 @@ function initScrollAnimations() {
 
 // Add loading state to buttons
 function initButtonLoadingStates() {
-    const ctaButtons = document.querySelectorAll('button:not(#menuToggle):not(#darkModeToggle):not(#darkModeToggleMobile):not([type="submit"])');
+    // Mobil menü butonlarını (menuToggle, darkModeToggleMobile, closeMenu) 
+    // ve header'daki darkModeToggle butonunu hariç tutuyoruz.
+    const ctaButtons = document.querySelectorAll(
+        'button:not(#menuToggle):not(#darkModeToggle):not(#darkModeToggleMobile):not(#closeMenu):not([type="submit"])'
+    );
+    
     ctaButtons.forEach(button => {
         button.addEventListener('click', function(e) {
+            // Sadece bağlantı olmayan ve disabled olmayan butonlar için yükleme durumunu uygula
             if (!this.closest('a') && !this.disabled) {
                 e.preventDefault();
                 const originalText = this.querySelector('span').textContent;
@@ -133,7 +194,8 @@ function initButtonLoadingStates() {
                     if (textElement) {
                         textElement.textContent = originalText;
                     }
-                    window.location.href = 'contact.html';
+                    // Burası test amaçlı, normalde formu submit eder veya sayfayı yönlendirir.
+                    window.location.href = 'contact.html'; 
                 }, 800);
             }
         });
